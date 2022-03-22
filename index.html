@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Etch-A-Sketch</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="app-container">
+			<div class="nav">
+				<div class="hamburger-menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+
+				<div class="menu">
+					<div class="color-picker-wrapper">
+						<input
+							type="color"
+							id="favcolor"
+							name="favcolor"
+							value="#ff0000"
+						/>
+					</div>
+					<div class="rainbow-mode-button-wrapper">
+						<button class="active-button">Rainbow Mode</button>
+					</div>
+					<div class="color-mode-button-wrapper">
+						<button>Color Mode</button>
+					</div>
+					<div class="eraser-button-wrapper">
+						<button>Eraser</button>
+					</div>
+					<div class="show-grid">
+						<button>Show Grid</button>
+					</div>
+					<div class="clear-button-wrapper">
+						<button>Clear</button>
+					</div>
+					<div class="grid-dimensions-text-wrapper">
+						<span></span>
+					</div>
+
+					<div class="range-grid-wrapper">
+						<input
+							type="range"
+							id="range-grid-input"
+							min="1"
+							max="64"
+							value="10"
+						/>
+					</div>
+				</div>
+			</div>
+			<h1>Etch-A-Sketch</h1>
+			<div id="grid"></div>
+		</div>
+
+		<footer>Made by Mihai192 © 2022 <a href="#">code-github</a></footer>
+
+		<script src="app.js"></script>
+		<script src="navbar.js"></script>
+		<script src="responsive.js"></script>
+	</body>
+</html>

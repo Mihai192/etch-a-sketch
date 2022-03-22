@@ -1,0 +1,180 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #e0e0e0;
+}
+
+h1 {
+	text-align: center;
+	font-size: 3.5rem;
+	padding: 1rem;
+}
+
+.border {
+	border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+button {
+	color: black;
+	background-color: #f3f3f3;
+	border: none;
+	border-radius: 10px;
+	padding: 2rem 3rem;
+	cursor: pointer;
+	width: 150px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 550;
+}
+
+button:hover {
+	background-color: #dadada;
+}
+
+.active-button {
+	color: #f3f3f3;
+	background-color: black;
+	border: 5px solid white;
+}
+
+.nav {
+	position: fixed;
+	min-height: 10vh;
+	top: 0;
+	left: 0;
+	background-color: black;
+}
+
+.menu > * {
+	padding: 1.7rem;
+	display: flex;
+	justify-content: center;
+}
+
+.menu {
+	height: 91vh;
+	width: 300px;
+
+	background-color: black;
+
+	position: fixed;
+	top: 10vh;
+	left: -300px;
+	display: flex;
+	flex-direction: column;
+
+	transition: left 0.3s ease-in-out;
+}
+
+.active {
+	left: 0;
+}
+
+.color-picker-wrapper input {
+	border: 0;
+
+	width: 50px;
+	height: 50px;
+}
+
+#grid {
+	display: grid;
+	background-color: #ffffff;
+	margin: auto;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+	width: 80vmin;
+	height: 80vmin;
+}
+
+.grid-dimensions-text-wrapper span {
+	text-align: center;
+	color: white;
+	font-size: 1.6rem;
+}
+
+.hamburger-menu {
+	min-height: 10vh;
+	padding: 15px;
+	cursor: pointer;
+	width: 100px;
+	position: relative;
+	z-index: 5;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.menu-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+.hamburger-menu > span {
+	background-color: grey;
+	margin: 5px 0;
+
+	display: block;
+	padding: 3px 2px;
+}
+
+@media screen and (max-width: 1000px) {
+	.nav {
+		position: sticky;
+		top: 0;
+		left: 0;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#grid {
+		width: 50vmin;
+		height: 50vmin;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#grid {
+		width: 250px;
+		height: 250px;
+	}
+}
+
+@media screen and (max-height: 725px) {
+	.menu {
+		overflow-y: scroll;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	h1 {
+		max-height: 10vh;
+	}
+	#grid {
+		width: 75vmin;
+		height: 75vmin;
+		max-width: 100%;
+	}
+
+	.menu {
+		top: 0;
+		height: 100%;
+	}
+	.color-picker-wrapper {
+		padding-top: 10vh;
+	}
+
+	.nav {
+		min-height: 100%;
+	}
+}
+
+footer {
+	text-align: center;
+	padding: 4rem;
+	font-size: 2rem;
+}
