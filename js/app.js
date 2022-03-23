@@ -20,6 +20,9 @@ let toggleMode           = false;
 
 let activeButton         = rainbowModeButton;
 
+let mouseDown = false;
+
+
 /* UTILITY FUNCTIONS */
 
 function getGridWidth()
@@ -59,6 +62,18 @@ function changeActiveButton(btn)
 
 }
 
+function changeBGsquare(new_node)  
+{
+	if ( rainbowMode )
+		changeToRandomColor(new_node);
+	else if ( colorMode )
+		changeToColor(new_node, colorPicker.value);
+	else
+		changeToColor(new_node, whiteColor);
+	
+}
+
+
 /* FUNCTIONALITY */
 
 function clearGrid()
@@ -84,17 +99,17 @@ function generateGrid(num)
 
 		let new_node = div.cloneNode();
 
-		new_node.addEventListener('mouseover', (e) => {
-			if(e.buttons == 1)
-			{
-				if ( rainbowMode )
-					changeToRandomColor(new_node);
-				else if ( colorMode )
-					changeToColor(new_node, colorPicker.value);
-				else
-					changeToColor(new_node, whiteColor);
-			}
+		new_node.addEventListener('mouseover', function(e) {
+			e.preventDefault();
+			if (mouseDown)
+				changeBGsquare(e.target);
 		});
+
+		new_node.addEventListener('mousedown', function(e) { 
+			e.preventDefault();
+			changeBGsquare(e.target);
+		});
+		
 
 		grid.appendChild(new_node);	
 	}
@@ -121,17 +136,17 @@ function changeGrid(value)
 			{
 				let new_node = div.cloneNode();
 				
-				new_node.addEventListener('mouseover', (e) => {
-					if(e.buttons == 1)
-					{
-						if ( rainbowMode )
-							changeToRandomColor(new_node);
-						else if ( colorMode )
-							changeToColor(new_node, colorPicker.value);
-						else
-							changeToColor(new_node, whiteColor);
-					}
+				new_node.addEventListener('mouseover', function(e) {
+					e.preventDefault();
+					if (mouseDown)
+						changeBGsquare(e.target);
 				});
+		
+				new_node.addEventListener('mousedown', function(e) { 
+					e.preventDefault();
+					changeBGsquare(e.target);
+				});
+
 
 				grid.appendChild(new_node);	
 			}
@@ -187,6 +202,9 @@ function toggleGrid()
 
 function init()
 {
+	document.body.onmousedown = () => (mouseDown = true);
+	document.body.onmouseup = () => (mouseDown = false);
+
 	gridDimensionsText.innerHTML = `${toggle_range_input.value}x${toggle_range_input.value}`;
 	generateGrid(parseInt(toggle_range_input.value));
 }
