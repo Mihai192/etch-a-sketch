@@ -85,15 +85,15 @@ function generateGrid(num)
 		let new_node = div.cloneNode();
 
 		new_node.addEventListener('mouseover', (e) => {
-				if(e.buttons == 1)
-				{
-					if ( rainbowMode )
-						changeToRandomColor(new_node);
-					else if ( colorMode )
-						changeToColor(new_node, colorPicker.value);
-					else
-						changeToColor(new_node, whiteColor);
-				}
+			if(e.buttons == 1)
+			{
+				if ( rainbowMode )
+					changeToRandomColor(new_node);
+				else if ( colorMode )
+					changeToColor(new_node, colorPicker.value);
+				else
+					changeToColor(new_node, whiteColor);
+			}
 		});
 
 		grid.appendChild(new_node);	
