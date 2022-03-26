@@ -202,8 +202,8 @@ function toggleGrid()
 
 function init()
 {
-	document.body.onmousedown = () => (mouseDown = true);
-	document.body.onmouseup = () => (mouseDown = false);
+	document.body.onmousedown = () => {mouseDown = true;};
+	document.body.onmouseup = () => {mouseDown = false;};
 
 	gridDimensionsText.innerHTML = `${toggle_range_input.value}x${toggle_range_input.value}`;
 	generateGrid(parseInt(toggle_range_input.value));
